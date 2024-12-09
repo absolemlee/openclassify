@@ -15,7 +15,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'My Application'),
+    'name' => env('APP_NAME', 'Clasificados Mameyal'),
 
     'application_domain' => env('APPLICATION_DOMAIN', null),
 
