@@ -32,10 +32,10 @@ services:
     build:
       context: .
       dockerfile: ./docker/nginx/Dockerfile
-    container_name: ${APP_NAME}_nginx  
+    container_name: ${APP_NAME}0_nginx  
     ports:
-      - target: 80
-        published: ${WEB_PUBLISHED_PORT:-80}
+      - target: 8181
+        published: ${WEB_PUBLISHED_PORT:-8181}
         protocol: tcp
         mode: host
     volumes:
@@ -52,8 +52,8 @@ services:
       dockerfile: ./docker/mysql/Dockerfile
     command: --max_allowed_packet=32505856      # Set max_allowed_packet to 256M (or any other value)  
     ports:
-      - target: 3306
-        published: ${DB_PUBLISHED_PORT:-3306}
+      - target: 3307
+        published: ${DB_PUBLISHED_PORT:-3307}
         protocol: tcp
         mode: host
     configs:
@@ -78,7 +78,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
-      - "8081:80"
+      - "8989:80"
     depends_on:
       - database
     environment:
